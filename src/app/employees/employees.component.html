@@ -1,43 +1,52 @@
+
 <div class="container">
-
-<form>
-    <h1>Nuevo Empleado</h1>
-
+    
+<form [formGroup]="crearEmpleado" (ngSubmit)="agregarEditarEmpleado()">
+    <h1>{{ titulo }}</h1>
+    <span *ngIf="submitted && crearEmpleado.invalid" style="color: red;">*TODOS LOS CAMPOS SON OBLIGATORIOS*</span>
     <div class="form-group">
         <label for="name">Nombre</label>
-        <input type="text" class="form-control" id="name" placeholder="Ingrese el Nombre">
+        <input formControlName="nombre"
+        type="text" class="form-control" id="name" placeholder="Ingrese el Nombre">
     </div>
 
     <div class="form-group">
         <label for="lastname">Apellido</label>
-        <input type="text" class="form-control" id="name" placeholder="Ingrese el Apellido">
+        <input formControlName="apellido" 
+        type="text" class="form-control" id="name" placeholder="Ingrese el Apellido">
     </div>
 
     <div class="form-group">
         <label for="identification">Cedula</label>
-        <input class="form-control" id="name" placeholder="Ingrese la Cedula" mask="000-0000000-0">
+        <input formControlName="cedula"  
+        class="form-control" id="name" placeholder="Ingrese la Cedula" mask="000-0000000-0">
     </div>
 
     <div class="form-group">
         <label for="ocupation">Puesto</label>
-        <input type="text" class="form-control" id="name" placeholder="Ingrese el Puesto">
+        <input formControlName="puesto"  
+        type="text" class="form-control" id="name" placeholder="Ingrese el Puesto">
     </div>
 
     <div class="form-group">
         <label for="departament">Departamento</label>
-        <input type="text" class="form-control" id="name" placeholder="Ingrese el Departamento">
+        <input formControlName="departamento"  
+        type="text" class="form-control" id="name" placeholder="Ingrese el Departamento">
     </div>
 
     <div class="form-group">
         <label for="name">Salario</label>
-        <input type="Salay" class="form-control" id="name" placeholder="Ingrese el Salario">
+        <input formControlName="salario"  
+        type="number" class="form-control" id="name" placeholder="Ingrese el Salario">
     </div>
 
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label for="dateCreate">Fecha de Creación</label>
-        <input type="date" class="form-control" id="name" placeholder="Ingrese la Fecha">
-    </div>
+        <input formControlName="fecha"  
+         class="form-control" id="name" placeholder="Ingrese la Fecha" mask="00/00/0000">
+    </div> -->
 
-    <button type="submit" class="btn btn-primary btnSave">Guardar</button>
+    <button type="submit" class="btn btn-primary btnSave mb-2 me-1">{{botonTitulo}}</button>
+    <button class="btn btn-primary btnSave mb-2" routerLink="/home">Volver</button>
   </form>
 </div>
